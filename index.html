@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>MD. REFAT HOSSAIN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .logo {
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 24px;
+            color: #2d3436;
+        }
+
+        .logo-text {
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover .logo-text {
+            color: #007bff;
+        }
+
+        /* For image logo */
+        .logo-img {
+            height: 40px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .logo-img {
+                height: 35px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 80px;
+            background: #f9f9f9;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .hero-image {
+            width: 50%;
+            padding-right: 40px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-content {
+            width: 60%;
+            text-align: left;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .hero-content p {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        /* customize by AJ */
+        .txtWel {
+            color: #007bff;
+            font-size: 120px;
+            font-weight: 700;
+        }
+
+        .txtNme {
+            color: #333;
+            font-size: 45px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 20px;
+                height: auto;
+            }
+
+            .hero-container {
+                flex-direction: column;
+            }
+
+            .hero-image {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .hero-content {
+                width: 100%;
+                text-align: center;
+            }
+
+            /* .hero-content h1 {
+                font-size: 2.5em;
+            } */
+
+            .txtWel {
+            font-size: 77px;
+        }
+        .txtNme {
+            font-size: 1em;
+        }
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 80px;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        /* about section */
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            color: #2d3436;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #636e72;
+            margin-bottom: 35px;
+        }
+
+        .detail-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .detail-item i {
+            font-size: 1.8em;
+            color: #007bff;
+            margin-top: 5px;
+        }
+
+        .detail-item h4 {
+            color: #2d3436;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .detail-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .detail-item li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .detail-item li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #007bff;
+        }
+
+        .highlight-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .software-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .software-item img {
+            width: 30px;
+            height: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-item {
+                flex-direction: column;
+            }
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: #007bff;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .contact-subhead {
+            color: #6c757d;
+            margin-bottom: 50px;
+            font-size: 1.1em;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            text-align: left;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-item i {
+            font-size: 1.8em;
+            color: #007bff;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .info-item h4 {
+            margin-bottom: 5px;
+            color: #2d3436;
+        }
+
+        .info-item a {
+            color: #6c757d;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-item a:hover {
+            color: #007bff;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #2d3436;
+            transition: all 0.3s;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-icon:hover {
+            background: #007bff;
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .social-icon i {
+            font-size: 1.5em;
+            width: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .info-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Footer */
+        .main-footer {
+            background: #2d3436;
+            color: #ffffff;
+            padding: 60px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .footer-brand {
+            padding-right: 40px;
+        }
+
+        .logofooter {
+            font-size: 2.2em;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .dot {
+            color: #007bff;
+        }
+
+        .footer-brand p {
+            color: #dfe6e9;
+            margin-bottom: 25px;
+        }
+
+        .social-links-footer a {
+            color: #ffffff;
+            font-size: 1.4em;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #007bff;
+        }
+
+        .footer-col h4 {
+            color: #007bff;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col li {
+            margin-bottom: 12px;
+            color: #dfe6e9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-col a {
+            color: #dfe6e9;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #007bff;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .newsletter-form button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #0056b3;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #636e72;
+        }
+
+        .legal-links {
+            margin-top: 15px;
+        }
+
+        .legal-links a {
+            color: #dfe6e9;
+            margin: 0 15px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-brand {
+                text-align: center;
+                padding-right: 0;
+            }
+
+            .footer-col {
+                text-align: center;
+            }
+
+            .footer-col li {
+                justify-content: center;
+            }
+
+            .newsletter-form {
+                justify-content: center;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            
+            .section {
+                padding: 60px 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+        }
+
+        /* customize by AJ */
+        
+        .project-card .project-info h3 {
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="https://sites.google.com/diu.edu.bd/refathossain/" class="logo">
+                <!-- Choose either text logo or image logo -->
+                <!-- Text version -->
+                <span class="logo-text">REFAT HOSSAIN</span>
+
+                <!-- OR Image version -->
+                <!-- <img src="your-logo-image.png" alt="Logo" class="logo-img"> -->
+            </a>
+
+            <ul>
+                <li><a href="https://sites.google.com/diu.edu.bd/refathossain/">Home</a></li>
+                <li><a href="https://sites.google.com/diu.edu.bd/refathossain/">About</a></li>
+                <li><a href="https://sites.google.com/diu.edu.bd/refathossain/">Projects</a></li>
+                <li><a href="https://sites.google.com/diu.edu.bd/refathossain/">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-image">
+                <!-- <img src="./image/heroImg2.jpg" alt="Profile Photo"> -->
+                <img src="https://drive.google.com/thumbnail?id=14Dup-62wkZhrUw4BFbeGOTMFuO-59yuI&sz=w1000" alt="Profile Photo">
+
+            </div>
+            <div class="hero-content">
+                <h1> <span class="txtWel">Welcome,</span> <br> <span class="txtNme">I'm MD. REFAT HOSSAIN</span></h1>
+                <p>Video-editor & Digital Creator</p>
+                <a href="https://sites.google.com/diu.edu.bd/refathossain/" class="cta-button">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Computer Science Student & Creative Professional</h3>
+                    <p>I'm MD Refat Hossain, currently pursuing my BSc in Computer Science and Engineering (6th
+                        Semester) at Daffodil International University (DIU) while working as a professional video
+                        editor and digital content creator. Bridging
+                        technical expertise with creative vision, I deliver innovative solutions in both tech and
+                        digital media domains.</p>
+
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <div>
+                                <h4>Technical Expertise</h4>
+                                <ul>
+                                    <li>Programming: Python, Java, C++</li>
+                                    <li>Web Development: HTML5, CSS3, JavaScript</li>
+                                    <li>Database Management: SQL, MongoDB</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <i class="fas fa-video"></i>
+                            <div>
+                                <h4>Creative Skills</h4>
+                                <ul>
+                                    <li>Professional Video Editing (Premiere Pro, After Effects)</li>
+                                    <li>Motion Graphics & Animation</li>
+                                    <li>Digital Content Strategy & Creation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <h4>Key Achievements</h4>
+                        <ul>
+                            <li>Edited 150+ client videos with 95% satisfaction rate</li>
+                            <li>Developed educational content with 500k+ total views</li>
+                            <li>University tech fest award winner (2023)</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-card">
+                        <h4>Software Proficiency</h4>
+                        <div class="software-grid">
+                            <div class="software-item">
+                                <img src="https://drive.google.com/thumbnail?id=1arpo-aA-o-sT9xTRjxYN8apBGh79QE3f&sz=w1000" alt="Premiere Pro">
+                                <span>Adobe Premiere Pro</span>
+                            </div>
+                            <div class="software-item">
+                                <img src="https://drive.google.com/thumbnail?id=1GT-DKyEEV9wcCYcONkPZNPwLbIp9TMc_&sz=w1200" alt="After Effects">
+                                <span>After Effects</span>
+                            </div>
+                            <div class="software-item">
+                                <img src="https://drive.google.com/thumbnail?id=1EetIqsbaBS3Ad-T4GFAMOeIQ8YrInWK9&sz=w1000" alt="Photoshop">
+                                <span>Photoshop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://drive.google.com/thumbnail?id=1q-4abce04waJmQxFAXz2ZLhtFvVgPAob&sz=w800" alt="Project 1">
+                <div class="project-info">
+                    <h3>Professional Video Editing & Content Creation Services</h3>
+                    <p>
+                        🎬 <strong>Full-spectrum video services</strong>
+                        <br>
+                        <span>Professional editing for short/long videos + motion graphics. Script-to-screen strategy.
+                            Custom packages.</span>
+                    </p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://drive.google.com/thumbnail?id=1rfYRMQSK7ysHVv2nBl8da2fOv2vM-oGH&sz=w800" alt="Project 1">
+                <div class="project-info">
+                    <h3>Wedding Cinematic Highlights - Sarah & Alex</h3>
+                    <p>Emotion-driven narrative editing with drone footage integration. Color-graded using DaVinci
+                        Resolve for filmic texture and romantic tone enhancement.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://drive.google.com/thumbnail?id=1aKYSky-_K5WqVMye84syN7gpcNZ9agP7&sz=w800" alt="Project 1">
+                <div class="project-info">
+                    <h3>Viral Food Vlog Package - Burger Chronicles</h3>
+                    <p>*Fast-paced YouTube series editing with dynamic jump cuts, 4K stabilization, and ASMR sound
+                        design. Achieved 2M+ views across platforms.*</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://drive.google.com/thumbnail?id=1BFwn4PkaCwlq_YTECq0IXvRDi74avEJE&sz=w1000" alt="Project 1">
+                <div class="project-info">
+                    <h3>E-commerce Product Demo Reels</h3>
+                    <p>360° rotating product showcases with CGI integration for FashionHub. Enhanced click-through rate
+                        by 40% through attention-grabbing zooms/slow-mo effects.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://drive.google.com/thumbnail?id=1FUR7iwp1EmWVbKbtVG3CIN6G6cfKd8xk&sz=w1000" alt="Project 1">
+                <div class="project-info">
+                    <h3>Music Video - 'Neon Nights' by ElectroWave</h3>
+                    <p>Synced glitch transitions with EDM beats using After Effects. Implemented VFX light leaks and
+                        retro VHS effects for nostalgic cyberpunk aesthetic.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://drive.google.com/thumbnail?id=148Wqt37QVy72tKxLFXQo0Iba37-BrdBZ&sz=w1000" alt="Project 1">
+                <div class="project-info">
+                    <h3>Educational Course Trailer - AI Basics 101</h3>
+                    <p>Whiteboard animation compositing with presenter PIP (Picture-in-Picture) editing. Added animated
+                        infographics and closed captions for e-learning platforms.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://drive.google.com/thumbnail?id=19qVfCqwHFnH7z90APMVdvZlmCU0570sV&sz=w1000" alt="Project 1">
+                <div class="project-info">
+                    <h3>Documentary: Urban Artists Unleashed</h3>
+                    <p>Feature-length documentary editing with interview sequencing and archival footage restoration.
+                        Implemented subtitles in 3 languages for global distribution.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                
+                <img src="https://drive.google.com/thumbnail?id=1VvOMYt79sa_iGkb4AZRH0B48O-6oyo73&sz=w1000" alt="Project 1">
+                <div class="project-info">
+                    <h3>Fitness App Promo Campaign</h3>
+                    <p>High-energy promotional videos with kinetic typography and split-screen effects. Optimized for
+                        Instagram/TikTok vertical formats (9:16 ratio).</p>
+                </div>
+            </div>
+            <!-- Add more project cards -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="contact-container">
+            <h2>Contact me</h2>
+            <p class="contact-subhead">Get in touch for projects, collaborations or just a hello!</p>
+
+            <div class="contact-wrapper">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <div>
+                            <h4>Email Me</h4>
+                            <a href="mailto:alonerefat100@gmail.com">alonerefat100@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Daffodil Smart City, Ashulia, Dhaka</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Call Me</h4>
+                            <a href="tel:+8801234567890">+880 162978 5568</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/md-refat-hossain-57900634a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                        target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn Profile</span>
+                    </a>
+
+                    <a href="https://github.com/refatCSE1" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub Portfolio</span>
+                    </a>
+
+                    <a href="https://www.facebook.com/share/1Ax2L9FHCV/?mibextid=wwXIfr" target="_blank"
+                        class="social-icon">
+                        <i class="fab fa-facebook"></i>
+                        <span>Facebook</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <!-- Branding Section -->
+            <div class="footer-brand">
+                <h3 class="logofooter">REFRT<span class="dot">.</span></h3>
+                <p>Bridging Technology & Creativity</p>
+                <div class="social-links-footer">
+                    <a href="https://www.linkedin.com/in/md-refat-hossain-57900634a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/refatCSE1" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.facebook.com/share/1Ax2L9FHCV/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="https://sites.google.com/diu.edu.bd/refathossain/">Home</a></li>
+                    <li><a href="https://sites.google.com/diu.edu.bd/refathossain/">Projects</a></li>
+                    <li><a href="https://sites.google.com/diu.edu.bd/refathossain/">About</a></li>
+                    <li><a href="https://sites.google.com/diu.edu.bd/refathossain/">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-col">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> alonerefat100@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +880 162978 5568</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Daffodil Smart City, Ashulia, Dhaka</li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 MD Refat Hossain. All rights reserved</p>
+            <div class="legal-links">
+                <a href="https://sites.google.com/diu.edu.bd/refathossain/">Privacy Policy</a>
+                <a href="https://sites.google.com/diu.edu.bd/refathossain/">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
